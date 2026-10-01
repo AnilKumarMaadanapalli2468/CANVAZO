@@ -17,8 +17,7 @@ class DRAWING:
     brand='Filter-brand-4'
     product='//img[@class="no-js-hidden product-second-img lazyautosizes ls-is-cached lazyloaded"]'
     next_img='(//*[name()="svg" and @class="flickity-button-icon"])[2]'
-    quantity='(//*[name()="svg" and @viewBox="0 0 14 14"])[2]'
-
+    quantity_inc = ('xpath', '(//button[@type="button"])[5]')
     def __init__(self,driver):
         self.driver=driver
         self.wait=WebDriverWait(driver,10)
@@ -50,8 +49,9 @@ class DRAWING:
     def click_next_img(self):
         self.driver.find_element('xpath',self.next_img).click()
         time.sleep(1)
-    def click_quantity(self):
-        quantity_ele=self.wait.until(EC.element_to_be_clickable(('xpath',self.quantity)))
-        ActionChains(self.driver).scroll_to_element(quantity_ele)
-        quantity_ele.click()
+
+    def inc_quant(self):
+        quant = self.wait.until(EC.presence_of_element_located(self.quantity_inc))
+        self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", quant)
+        self.wait.until(EC.element_to_be_clickable(self.quantity_inc)).click()
         time.sleep(1)

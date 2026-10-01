@@ -17,4 +17,4 @@ def test_artist(setup):
     D.click_next_img()
     D.click_next_img()
     D.click_next_img()
-    D.click_quantity()
+    D.inc_quant()
