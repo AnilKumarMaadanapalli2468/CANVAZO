@@ -1,4 +1,3 @@
-from pages.top_artists_page import TOP_ARTISTS
 
 def test_artist(setup):
     A=TOP_ARTISTS(setup)
