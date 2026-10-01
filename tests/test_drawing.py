@@ -1,5 +1,20 @@
-
+from pages.Drawing_Illustration_page import DRAWING
+from pages.login_page import LOGIN
 def test_artist(setup):
-    A=TOP_ARTISTS(setup)
-    A.click_on_top_artists()
-    A.click_on_arjith_singh()
+    # L=LOGIN(setup)
+    # L.pass_email('anilkumarm640@gmail.com')
+    # L.pass_pwd('Anil@2468')
+    # L.click_sign_in()
+    D=DRAWING(setup)
+    D.click_drawings()
+    D.click_in_stock()
+    D.pass_min_price('50')
+    D.pass_max_price('200')
+    D.click_categorie()
+    D.click_color()
+    D.click_brand()
+    D.click_on_product()
+    D.click_next_img()
+    D.click_next_img()
+    D.click_next_img()
+    D.click_quantity()
