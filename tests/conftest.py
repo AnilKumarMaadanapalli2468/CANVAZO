@@ -1,4 +1,6 @@
 import pytest
+from selenium.webdriver.support.wait import WebDriverWait
+
 
 @pytest.fixture()
 def setup():
@@ -9,3 +11,6 @@ def setup():
     driver.get(r'https://canvazo.com/')
     yield driver
     driver.close()
+@pytest.fixture
+def wait(setup):
+    return WebDriverWait(setup, 10)
