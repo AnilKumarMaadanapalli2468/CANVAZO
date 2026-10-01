@@ -18,6 +18,7 @@ class DRAWING:
     product='//img[@class="no-js-hidden product-second-img lazyautosizes ls-is-cached lazyloaded"]'
     next_img='(//*[name()="svg" and @class="flickity-button-icon"])[2]'
     quantity_inc = ('xpath', '(//button[@type="button"])[5]')
+
     def __init__(self,driver):
         self.driver=driver
         self.wait=WebDriverWait(driver,10)
