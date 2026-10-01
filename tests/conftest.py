@@ -6,6 +6,6 @@ def setup():
     driver = webdriver.Chrome()
     driver.implicitly_wait(30)
     driver.maximize_window()
-    driver.get(r'https://www.jiosaavn.com/')
+    driver.get(r'https://canvazo.com/')
     yield driver
     driver.close()
