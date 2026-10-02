@@ -7,6 +7,8 @@ def test_kids(driver):
     kids = KidsPage(driver)
     kids.go_to_kids()
     kids.go_to_drawing_coloring()
+    kids.go_to_kids()
+    kids.go_to_drawing_coloring()
 
 
 
