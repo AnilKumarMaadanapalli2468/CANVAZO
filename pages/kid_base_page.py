@@ -19,15 +19,22 @@ class BasePage:
             EC.element_to_be_clickable(locator))
         element.click()
 
-    def send_keys(self, locator, text):
-        element = self.wait.until(
-            EC.visibility_of_element_located(locator)
-        )
-        element.clear()
-        element.send_keys(text)
 
-    def get_text(self, locator):
-        element = self.wait.until(
-            EC.visibility_of_element_located(locator)
-        )
-        return element.text
+    def clicks(self, locator):
+        products = self.wait.until(EC.presence_of_all_elements_located(locator))
+
+        for product in products:
+            self.driver.execute_script("arguments[0].style.border='3px solid red';", product)
+        products = self.wait.until(EC.presence_of_all_elements_located(locator))
+        last_product = products[-1]
+        self.wait.until(EC.visibility_of(last_product))
+        self.actions.move_to_element(last_product).click().perform()
+
+    def move_slider(self, locator, offset):
+        handle = self.wait.until(EC.visibility_of_element_located(locator))
+
+        self.actions.move_to_element(handle) \
+            .click_and_hold() \
+            .move_by_offset(offset, 0) \
+            .release() \
+            .perform()
