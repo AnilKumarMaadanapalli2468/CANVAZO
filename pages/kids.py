@@ -1,6 +1,8 @@
 from selenium.webdriver.common.action_chains import ActionChains
-from pages.kids_base_page import BasePage
 import time
+
+from pages.kid_base_page import BasePage
+
 
 class KidsPage(BasePage):
     kid_actions=("xpath","(//a[@class='nav-link dropdown-menu-item'])[8]")

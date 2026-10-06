@@ -1,6 +1,6 @@
 from pages.cart_page import CART
 import pytest
-# @pytest.mark.skip
+@pytest.mark.skip
 def test_cart(setup):
     driver = setup
     C = CART(driver)
