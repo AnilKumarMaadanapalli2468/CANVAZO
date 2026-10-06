@@ -1,5 +1,5 @@
 from selenium.webdriver.common.action_chains import ActionChains
-from pages.kids_base_page import BasePage
+from pages.kid_base_page import BasePage
 import time
 
 class KidsPage(BasePage):
@@ -43,7 +43,7 @@ class KidsPage(BasePage):
         self.click(self.kids_colour_painting)
         self.click(self.sort1)
         self.click(self.price_high_to_low)
-        self.clicks(self.products)
+        self.click_last_available_product(self.products)
         time.sleep(3)
     # def go_to_drawing_book(self):
     #     self.hover(self.drawing_book)

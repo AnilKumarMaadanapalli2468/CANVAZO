@@ -1,9 +1,8 @@
 from pages.kids import KidsPage
 
 
-def test_kids(driver):
-    driver.get("https://canvazo.com/")
-    kids = KidsPage(driver)
+def test_kids(setup):
+    kids = KidsPage(setup)
     kids.go_to_kids()
     kids.go_to_drawing_coloring()
     kids.go_to_kids()
