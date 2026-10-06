@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from pages.Basepage import BasePage
+from pages.Brands_BasePage import BasePage
 
 
 class Brandpage(BasePage):
