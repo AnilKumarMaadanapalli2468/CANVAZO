@@ -1,8 +1,9 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import ActionChains,Keys
+from pages.base_page import BasePage
 
-class CART:
+class CART(BasePage):
     search = ('id',"search-drawer-query-input")
     # seacrh_button = ('css selector',"//*[name()='svg' and @id='Layer_2']")
     product = ('xpath',"//a[contains(text(),'Apolix Twisty Crayons 6 Colours ')]")
@@ -12,10 +13,6 @@ class CART:
     quantity_dec = ('xpath','(//button[@type="button"])[9]')
     check_out = ('xpath','//a[@class="checkout-btn button black-btn"]')
 
-    def __init__(self,driver):
-        self.driver = driver
-        self.wait = WebDriverWait(driver,20)
-        self.ob = ActionChains(driver)
 
     def click_search(self,enter):
         ele = self.wait.until(EC.element_to_be_clickable(self.search))
@@ -28,8 +25,7 @@ class CART:
         self.wait.until(EC.element_to_be_clickable(self.product)).click()
 
     def clik_forward(self):
-        ele = self.wait.until(EC.element_to_be_clickable(self.forward))
-        ele.click()
+        self.click(self.forward)
 
     def inc_quant(self):
         quant = self.wait.until(EC.presence_of_element_located(self.quantity_inc))
@@ -37,16 +33,13 @@ class CART:
         self.wait.until(EC.element_to_be_clickable(self.quantity_inc)).click()
 
     def ca_rt(self):
-        ele = self.wait.until(EC.element_to_be_clickable(self.add_to_cart))
-        ele.click()
+        self.click(self.add_to_cart)
 
     def dec_quant(self):
-        ele = self.wait.until(EC.element_to_be_clickable(self.quantity_dec))
-        ele.click()
+        self.click(self.quantity_dec)
 
     def cliq_checkout(self):
-        ele = self.wait.until(EC.element_to_be_clickable(self.check_out))
-        ele.click()
+        self.click(self.check_out)
 
 
 
