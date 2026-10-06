@@ -1,0 +1,26 @@
+from pages.Stationery_page import Stationery
+import time
+
+def test_stationery(setup):
+    S = Stationery(setup)
+    S.click_stationery()
+    S.click_desk()
+    S.click_item()
+    S.click_button()
+    S.click_closebutton()
+    S.scroll_up()
+    S.click_stationery()
+    S.click_drinkwater()
+    S.click_stationery()
+    S.click_adhesive()
+    time.sleep(2)
+    S.click_instock()
+    time.sleep(2)
+    S.click_stationery()
+    S.click_journal()
+    time.sleep(3)
+    S.click_stationery()
+    S.click_handcrafted()
+    # S.click_sharpner()
+    # S.click_stationery()
+    # S.click_pen()
