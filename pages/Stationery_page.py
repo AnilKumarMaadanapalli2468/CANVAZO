@@ -2,20 +2,17 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from pages.base_page import BasePage
+from pages.kid_base_page import BasePage
 import time
 
 class Stationery(BasePage):
      stationery= ('xpath','(//a[@class="nav-link dropdown-menu-item"])[5]')
      Desk=('xpath','//a[@class="menu-category-title" and normalize-space()="Desk Accessories"]')
-
-
      Brand = ('xpath',"//label[@for='Filter-brand-5']")
      Selectitem = (By.CSS_SELECTOR,
         "div[data-product-grid] a.yv-product-img")
      Button=(By.CSS_SELECTOR,'button[class="Sd_addProduct add_to_cart button med-btn"]')
      CloseButton=(By.CSS_SELECTOR,'button[class="yv_side_drawer_close"]')
-
      DrinkWaterbottle = (
          By.XPATH,
          "//div[contains(@class,'dropdown-inner-menu-item')][.//a[normalize-space()='Desk Accessories']]//a[normalize-space()='Drinkware & Water Bottles']"
