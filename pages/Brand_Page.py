@@ -3,7 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from pages.Basepage import BasePage
 
 
-class HomePage(BasePage):
+class Brandpage(BasePage):
 
     brand_option = (By.XPATH, '(//a[@href="/pages/brands"])[1]')
     brand_logo = (By.XPATH, '//a[@aria-label="Canvazo"]//img')
@@ -66,6 +66,8 @@ class HomePage(BasePage):
             .replace(" ", "")
         )
 
+        failed_products = []
+
         for product in products:
             actual = (
                 product.text.lower()
@@ -74,14 +76,10 @@ class HomePage(BasePage):
                 .replace(" ", "")
             )
 
-            print("Expected:", expected)
-            print("Actual:", actual)
-
             if expected not in actual:
-                print("FAILED PRODUCT:", product.text)
-                return False
+                failed_products.append(product.text)
 
-        return True
+        return failed_products
 
 
 
