@@ -18,6 +18,10 @@ class DRAWING:
     product='//img[@class="no-js-hidden product-second-img lazyautosizes ls-is-cached lazyloaded"]'
     next_img='(//*[name()="svg" and @class="flickity-button-icon"])[2]'
     quantity_inc = ('xpath', '(//button[@type="button"])[5]')
+    add_to_cart='//button[@class="Sd_addProduct add_to_cart button med-btn"]'
+    close='(//*[name()="svg" and @role="presentation"])[1]'
+    cart='(//*[name()="svg" and @viewBox="0 0 50 50"])[3]'
+    remove_cart='(//*[name()="svg" and @class="icon icon-close"])[3]'
     def __init__(self,driver):
         self.driver=driver
         self.wait=WebDriverWait(driver,10)
@@ -54,4 +58,16 @@ class DRAWING:
         quant = self.wait.until(EC.presence_of_element_located(self.quantity_inc))
         self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", quant)
         self.wait.until(EC.element_to_be_clickable(self.quantity_inc)).click()
+        time.sleep(1)
+    def click_on_cart(self):
+        self.driver.find_element('xpath',self.add_to_cart).click()
+        time.sleep(2)
+    def click_close(self):
+        self.driver.find_element('xpath',self.close).click()
+        time.sleep(2)
+    def click_cart(self):
+        self.driver.find_element('xpath',self.cart).click()
+        time.sleep(1)
+    def click_remove_cart(self):
+        self.driver.find_element('xpath',self.remove_cart).click()
         time.sleep(1)
