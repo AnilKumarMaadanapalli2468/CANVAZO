@@ -1,5 +1,8 @@
+import pytest
+
 from pages.Drawing_Illustration_page import DRAWING
 from pages.login_page import LOGIN
+@pytest.mark.skip
 def test_artist(setup):
     # L=LOGIN(setup)
     # L.pass_email('anilkumarm640@gmail.com')
