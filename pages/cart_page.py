@@ -1,7 +1,9 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import ActionChains,Keys
-from pages.base_page import BasePage
+
+from pages.kid_base_page import BasePage
+
 
 class CART(BasePage):
     search = ('id',"search-drawer-query-input")

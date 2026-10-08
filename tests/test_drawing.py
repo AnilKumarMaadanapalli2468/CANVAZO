@@ -21,3 +21,6 @@ def test_artist(setup):
     D.click_next_img()
     D.click_next_img()
     D.inc_quant()
+    D.click_on_cart()
+    D.click_on_remove_from_cart()
+    D.click_on_close_cart()

@@ -1,8 +1,6 @@
-import pytest
-
 from pages.kids import KidsPage
 
-@pytest.mark.skip
+
 def test_kids(driver):
 
     driver.get("https://canvazo.com/")

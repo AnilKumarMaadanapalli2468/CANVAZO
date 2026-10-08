@@ -18,6 +18,10 @@ class DRAWING:
     product='//img[@class="no-js-hidden product-second-img lazyautosizes ls-is-cached lazyloaded"]'
     next_img='(//*[name()="svg" and @class="flickity-button-icon"])[2]'
     quantity_inc = ('xpath', '(//button[@type="button"])[5]')
+    add_to_cart="(//span[text()='Add to cart'])[1]"
+    remove_from_cart='//button[@class="sd_mini_removeproduct"]'
+        #'(//*[name()="svg" and @class="icon icon-close"])[3]'
+    close_cart='(//*[name()="svg" and @class="icon icon-close"])[2]'
 
     def __init__(self,driver):
         self.driver=driver
@@ -56,3 +60,13 @@ class DRAWING:
         self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", quant)
         self.wait.until(EC.element_to_be_clickable(self.quantity_inc)).click()
         time.sleep(1)
+    def click_on_cart(self):
+        self.driver.find_element('xpath',self.add_to_cart).click()
+        time.sleep(1)
+    def click_on_remove_from_cart(self):
+        self.driver.find_element('xpath',self.remove_from_cart).click()
+        time.sleep(1)
+    def click_on_close_cart(self):
+        self.driver.find_element('xpath',self.close_cart).click()
+        time.sleep(1)
+
